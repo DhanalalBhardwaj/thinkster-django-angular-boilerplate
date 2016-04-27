@@ -1,5 +1,6 @@
 # Python compiled byte code
 *.pyc
+.idea
 
 # SQLite3 database
 *.sqlite3
