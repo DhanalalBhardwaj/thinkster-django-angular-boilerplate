@@ -1,12 +1,16 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  angular
-    .module('thinkster', [
-      'thinkster.routes',
-      'thinkster.authentication'
-    ]);
+    angular
+        .module('thinkster', [
+            'thinkster.config',
+            'thinkster.routes',
+            'thinkster.authentication'
+        ]);
 
-  angular
-    .module('thinkster.routes', ['ngRoute']);
+    angular
+        .module('thinkster.routes', ['ngRoute']);
+
+    angular
+        .module('thinkster.config', []);
 })();
