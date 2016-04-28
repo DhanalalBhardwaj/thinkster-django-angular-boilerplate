@@ -36,9 +36,9 @@
         /**
          * @name register
          * @desc Try to register a new user
-         * @param {string} username The username entered by the user
-         * @param {string} password The password entered by the user
          * @param {string} email The email entered by the user
+         * @param {string} password The password entered by the user
+         * @param {string} username The username entered by the user
          * @returns {Promise}
          * @memberOf thinkster.authentication.services.Authentication
          */
@@ -47,7 +47,23 @@
                 username: username,
                 password: password,
                 email: email
-            });
+            }).then(registerSuccessFn, registerErrorFn);
+
+            /**
+             * @name registerSuccessFn
+             * @desc Log the new user in
+             */
+            function registerSuccessFn(data, status, headers, config) {
+                Authentication.login(email, password);
+            }
+
+            /**
+             * @name registerErrorFn
+             * @desc Log "Epic failure!" to the console
+             */
+            function registerErrorFn(data, status, headers, config) {
+                console.error('Epic failure!');
+            }
         }
 
         /**
@@ -125,6 +141,35 @@
          */
         function unauthenticate() {
             delete $cookies.authenticatedAccount;
+        }
+
+        /**
+         * @name logout
+         * @desc Try to log the user out
+         * @returns {Promise}
+         * @memberOf thinkster.authentication.services.Authentication
+         */
+        function logout() {
+            return $http.post('/api/v1/auth/logout/')
+                .then(logoutSuccessFn, logoutErrorFn);
+
+            /**
+             * @name logoutSuccessFn
+             * @desc Unauthenticate and redirect to index with page reload
+             */
+            function logoutSuccessFn(data, status, headers, config) {
+                Authentication.unauthenticate();
+
+                window.location = '/';
+            }
+
+            /**
+             * @name logoutErrorFn
+             * @desc Log "Epic failure!" to the console
+             */
+            function logoutErrorFn(data, status, headers, config) {
+                console.error('Epic failure!');
+            }
         }
     }
 })();
