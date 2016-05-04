@@ -1,29 +1,48 @@
 .no-posts-here {
-  text-align: center;
+    text-align: center;
 }
 
-.post {}
+.post {
+}
 
 .post .post__meta {
-  font-weight: bold;
-  text-align: right;
-  padding-bottom: 19px;
+    font-weight: bold;
+    text-align: right;
+    padding-bottom: 19px;
 }
 
 .post .post__meta a:hover {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 .btn-add-new-post {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
-.vertical-super{
-  vertical-align: super;
+.vertical-super {
+    vertical-align: super;
 }
 
-.red{
-  color: red;
+.red {
+    color: red;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -moz-border-radius: 2px; /* for Firefox */
+    -webkit-border-radius: 2px; /* for Webkit-Browsers */
+    border-radius: 2px; /* regular */
+}
+
+.well:hover .overlay {
+    display: block;
+    background-color: black;
+    opacity: 0.75;
 }

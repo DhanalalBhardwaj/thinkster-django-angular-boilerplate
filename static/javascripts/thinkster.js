@@ -3,6 +3,7 @@
 
     angular
         .module('thinkster', [
+            'ngMaterial',
             'thinkster.config',
             'thinkster.routes',
             'thinkster.utils',
