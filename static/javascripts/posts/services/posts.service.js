@@ -22,7 +22,8 @@
         var Posts = {
             all: all,
             create: create,
-            get: get
+            get: get,
+            destroy: destroy
         };
 
         return Posts;
@@ -51,6 +52,17 @@
             return $http.post('/api/v1/posts/', {
                 content: content
             });
+        }
+
+        /**
+         * @name delete
+         * @desc Delete a Post
+         * @param {string} pk Primary key of post to be deleted
+         * @returns {Promise}
+         * @memberOf thinkster.posts.services.Posts
+         */
+        function destroy(pk) {
+            return $http.delete('/api/v1/posts/' + pk + '/');
         }
 
         /**

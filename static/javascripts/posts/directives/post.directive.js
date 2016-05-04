@@ -23,6 +23,8 @@
          */
         var directive = {
             restrict: 'E',
+            controller: 'PostController',
+            controllerAs: 'vm',
             scope: {
                 post: '='
             },
