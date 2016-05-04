@@ -96,6 +96,7 @@
              */
             function loginErrorFn(data, status, headers, config) {
                 console.error('Epic failure!');
+                $('#error-block').fadeIn(500);
             }
         }
 
