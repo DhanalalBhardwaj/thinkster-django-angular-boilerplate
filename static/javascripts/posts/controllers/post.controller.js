@@ -41,8 +41,8 @@
              * @name createPostErrorFn
              * @desc Propogate error event and show snackbar with error message
              */
-            function deletePostErrorFn(data, status, headers, config) {
-                Snackbar.error(data.error);
+            function deletePostErrorFn(res, status, headers, config) {
+                Snackbar.error(res.data.detail);
             }
         }
     }
