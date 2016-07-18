@@ -8,7 +8,8 @@
                     </a>
                 </div>
 
-                <div class="overlay">
+<!--TODO : new post created does not evalute for ng-if-->
+                <div class="overlay" ng-if="post.author.id==vm.user.id">
                     <md-button class="md-fab md-primary md-mini" aria-label="Edit">
                         <md-icon md-svg-src="static/img/ic_border_color_white_18px.svg"></md-icon>
                     </md-button>

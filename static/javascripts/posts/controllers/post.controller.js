@@ -12,15 +12,16 @@
         .module('thinkster.posts.controllers')
         .controller('PostController', PostController);
 
-    PostController.$inject = ['Snackbar', 'Posts'];
+    PostController.$inject = ['Snackbar', 'Posts', 'Authentication'];
 
     /**
      * @namespace PostController
      */
-    function PostController(Snackbar, Posts) {
+    function PostController(Snackbar, Posts, Authentication) {
         var vm = this;
         
         vm.deletePost = deletePost;
+        vm.user  = Authentication.getAuthenticatedAccount();
 
         function deletePost(pk) {
 
